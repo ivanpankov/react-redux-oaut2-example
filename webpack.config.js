@@ -40,13 +40,13 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         port: port,
-        hot: true // Activate hot loading,
-        // proxy: {
-        //   '/api':{
-        //     target: 'https://express-passport-ivanpankov.c9users.io',
-        //     secure: false
-        //   }
-        // }
+        hot: true, // Activate hot loading
+        proxy: {
+            '/api':{
+                target: 'http://localhost:3001',
+                secure: false
+            }
+        }
     },
     plugins: [
         // creates index.html file

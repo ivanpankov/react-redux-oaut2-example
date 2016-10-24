@@ -21,7 +21,7 @@ export const receiveUsersFail = error => ({
     error
 });
 
-const usersRequest = new Request('/api/admin/users.json', {
+const usersRequest = new Request('/api/admin/users', {
     method: 'GET',
     mode: 'cors',
     redirect: 'follow',
