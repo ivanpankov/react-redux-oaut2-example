@@ -3,7 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 
 module.exports = {
     entry: [
@@ -43,7 +43,7 @@ module.exports = {
         hot: true, // Activate hot loading
         proxy: {
             '/api':{
-                target: 'http://localhost:3001',
+                target: 'http://localhost:3000',
                 secure: false
             }
         }

@@ -5,7 +5,7 @@
     "main": "./src/index.js",
     "scripts": {
         "dev:c9": "NODE_ENV=development webpack-dev-server --host $IP --port $PORT --config webpack.config.js --progress --history-api-fallback",
-        "dev": "webpack-dev-server"
+        "start": "webpack-dev-server"
     },
     "repository": {
         "type": "git",

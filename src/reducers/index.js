@@ -5,6 +5,7 @@ import about from './about';
 import contact from './contact';
 import admin from './admin';
 import notifications from './notifications';
+import user from './user';
 
 const index = combineReducers({
     navbar,
@@ -12,7 +13,8 @@ const index = combineReducers({
     about,
     contact,
     admin,
-    notifications
+    notifications,
+    user
 });
 
 export default index;

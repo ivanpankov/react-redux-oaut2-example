@@ -25,21 +25,23 @@ const store = createStore(
     )
 );
 
-const requireLogin = () => {
+const requireCredentials = (nextState, replace, next) => {
     // TODO: implement login check
 
     console.log('needs login access');
+
+    next();
 };
 
 render(
     <Provider store={store}>
         <Router history={browserHistory} >
-            <Route path="/" component={App}>
+            <Route path="/" component={App} onEnter="">
                 { /* Home (main) route */}
                 <IndexRoute component={Home} />
 
                 { /* Routes requiring login */}
-                <Route onEnter={requireLogin}>
+                <Route onEnter={requireCredentials}>
                     <Route path="/admin" component={Admin} />
                 </Route>
 
