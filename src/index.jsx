@@ -11,6 +11,7 @@ import Home from './containers/Home';
 import About from './containers/About';
 import Contact from './containers/Contact';
 import Admin from './containers/Admin';
+import Login from './containers/Login';
 import NotFound from 'containers/NotFound';
 
 import {getToken} from './actions/user';
@@ -54,12 +55,13 @@ const requireCredentials = (nextState, replace, next) => {
 render(
     <Provider store={store}>
         <Router history={browserHistory}>
-            <Route path="/" component={App} onEnter={requireCredentials}>
+            <Route path="/" component={App} >
                 { /* Home (main) route */}
                 <IndexRoute component={Home}/>
                 <Route path="/admin" component={Admin}/>
                 <Route path="/about" component={About}/>
                 <Route path="/contact" component={Contact}/>
+                <Route path="/login" component={Login}/>
 
                 <Route path="*" component={NotFound} status={404}/>
             </Route>

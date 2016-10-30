@@ -1,3 +1,5 @@
+import { REQUEST_TOKEN_SUCCESS } from '../actions/user';
+
 const initialUser = {
     isAuthenticated: false,
     name: 'User Name',
@@ -7,7 +9,13 @@ const initialUser = {
 
 const user = (state = initialUser, action = {}) => {
     switch (action.type) {
-
+        case REQUEST_TOKEN_SUCCESS:
+            return {
+                ...state,
+                name: action.profile.displayName,
+                isAuthenticated: true,
+                photo: action.profile.photo
+            };
 
         default:
             return state;

@@ -23,6 +23,7 @@ const Navbar = ({isCollapsed, toggleNavbar}) => (
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/admin">Admin</NavLink>
+                    <NavLink to="/login">Login</NavLink>
                 </ul>
                 <User />
             </div>
