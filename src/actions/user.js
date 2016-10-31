@@ -24,6 +24,7 @@ export const requestTokenFail = event => ({
 });
 
 const login = (callback) => {
+    /*
     const url = '/auth/github',
         width = 1000,
         height = 650,
@@ -44,6 +45,15 @@ const login = (callback) => {
             callback(event.data);
         }
     }
+    */
+
+    callback({
+        profile: {
+            photo: 'https://avatars.githubusercontent.com/u/3731333?v=3',
+            displayName: 'Ivan Pankov',
+            isAuthenticated: true
+        }
+    });
 };
 
 export const fetchToken = () => dispatch => {

@@ -2,8 +2,9 @@ import {connect} from 'react-redux';
 import Navbar from '../components/Navbar';
 import {toggleNavbar} from '../actions/navbar';
 
-const mapStateToProps = ({navbar}) => ({
-    isCollapsed: navbar.isCollapsed
+const mapStateToProps = ({navbar, user}) => ({
+    isCollapsed: navbar.isCollapsed,
+    isAuthenticated: user.isAuthenticated
 });
 
 const mapDispatchToProps = dispatch => ({

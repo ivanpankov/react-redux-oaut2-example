@@ -45,12 +45,12 @@ export default class Login extends Component {
                     <div className="col-xs-12 col-sm-6 col-sm-offset-3">
                         <form action="">
                             <div className="input-group">
-                                <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
                                 <input type="text" className="form-control" name="username" placeholder="email address"
                                        autoComplete="off"/>
                             </div>
                             <div className="input-group">
-                                <span className="input-group-addon"><i className="fa fa-lock"></i></span>
+                                <span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
                                 <input type="password" className="form-control" name="password" placeholder="Password"
                                        autoComplete="off"/>
                             </div>

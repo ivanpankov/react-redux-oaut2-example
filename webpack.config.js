@@ -24,6 +24,10 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract('css-loader!postcss-loader!less-loader')
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'url-loader?limit=100000&name=assets/fonts/[name].[ext]',
             }
         ]
     },

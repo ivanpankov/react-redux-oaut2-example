@@ -5,4 +5,4 @@ const mapStateToProps = ({user}) => {
     return user;
 };
 
-export default connect(mapStateToProps)(User);
+export default connect(mapStateToProps, null, null, {pure: false})(User);

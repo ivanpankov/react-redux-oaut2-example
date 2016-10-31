@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import NavLink from './NavLink';
 import User from '../containers/User';
 
 const COLLAPSED_CLASS = 'in';
 
-const Navbar = ({isCollapsed, toggleNavbar}) => (
+const Navbar = ({isCollapsed, isAuthenticated, toggleNavbar}) => (
     <nav className="navbar navbar-default">
         <div className="container-fluid">
             <div className="navbar-header">
@@ -22,8 +22,7 @@ const Navbar = ({isCollapsed, toggleNavbar}) => (
                     <NavLink to="/" isIndexLink={true}>Home</NavLink>
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
-                    <NavLink to="/admin">Admin</NavLink>
-                    <NavLink to="/login">Login</NavLink>
+                    { isAuthenticated ? <NavLink to="/admin">Admin</NavLink> : '' }
                 </ul>
                 <User />
             </div>
