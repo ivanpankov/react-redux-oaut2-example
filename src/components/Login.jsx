@@ -1,8 +1,25 @@
 import React, {Component} from 'react';
+import { browserHistory } from 'react-router'
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
+        // if(props.isAuthenticated) {
+        //     console.log('goback');
+        //     browserHistory.goBack();
+        // }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps');
+    }
+
+    componentWillMount() {
+        console.log('componentWillMount')
+        if(this.props.isAuthenticated) {
+            console.log('goback');
+            browserHistory.goBack();
+        }
     }
 
     render() {

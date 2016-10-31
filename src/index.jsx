@@ -28,6 +28,7 @@ const store = createStore(
     )
 );
 
+/*
 const requireCredentials = (nextState, replace, next) => {
 
     const state = store.getState();
@@ -36,10 +37,7 @@ const requireCredentials = (nextState, replace, next) => {
     if (user.isAuthenticated) {
         console.log('user is authenticated');
         next();
-    } else if (nextState.location.query.code) {
-        console.log('have code, get token: ', nextState.location.query.code);
 
-        next();
     } else {
         console.log('not authenticated, go code');
         window.location = 'http://localhost:3000/auth/github';
@@ -51,6 +49,7 @@ const requireCredentials = (nextState, replace, next) => {
 
     next();
 };
+*/
 
 render(
     <Provider store={store}>

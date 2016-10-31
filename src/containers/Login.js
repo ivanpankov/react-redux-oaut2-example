@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from '../components/Login';
-import {fetchToken} from '../actions/user';
+import {loginGitHub} from '../actions/user';
 
 const mapStateToProps = ({ user }) => {
     return {
@@ -10,7 +10,7 @@ const mapStateToProps = ({ user }) => {
 
 const mapDispatchToProps = dispatch => ({
     loginGitHub: () => {
-        dispatch(fetchToken());
+        dispatch(loginGitHub());
     }
 });
 
