@@ -1,6 +1,11 @@
 import { browserHistory } from 'react-router'
 import { notification } from './notification';
 
+export const TOGGLE_LOGIN_MODAL = 'TOGGLE_LOGIN_MODAL';
+export const toggleLoginModal = () => ({
+  type: TOGGLE_LOGIN_MODAL
+});
+
 
 export const REQUEST_TOKEN = 'REQUEST_TOKEN';
 export const requestToken = event => ({

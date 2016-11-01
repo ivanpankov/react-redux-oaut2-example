@@ -1,13 +1,9 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
 
-const mapStateToProps = state => ({
-    navbar: state.navbar,
-    home: state.home
+const mapStateToProps = ({ user }) => ({
+    isAuthenticated: user.isAuthenticated,
+    showLoginModal: user.showLoginModal
 });
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

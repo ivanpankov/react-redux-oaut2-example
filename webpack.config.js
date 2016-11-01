@@ -22,12 +22,16 @@ module.exports = {
                 loaders: ['babel?presets[]=react,presets[]=es2015,presets[]=stage-2']
             },
             {
+                test: /\.css$/,
+                loader: 'style!css?sourceMap'
+            },
+            {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract('css-loader!postcss-loader!less-loader')
             },
             {
                 test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url-loader?limit=100000&name=assets/fonts/[name].[ext]',
+                loader: 'url-loader?limit=100000&name=assets/fonts/[name].[ext]'
             }
         ]
     },

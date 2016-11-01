@@ -19,9 +19,23 @@
 }
 
 #profile {
-  a {
-   span.glyphicon-user {
-     padding-left: 6px;
-   }
+  &> span {
+    line-height: 49px;
+    cursor: pointer;
+  }
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: block;
+
+  .modal-header {
+    padding: 0;
+  }
+
+  .close {
+    position: relative;
+    top: 10px;
+    right: 10px;
   }
 }

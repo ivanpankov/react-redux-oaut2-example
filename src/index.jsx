@@ -11,11 +11,11 @@ import Home from './containers/Home';
 import About from './containers/About';
 import Contact from './containers/Contact';
 import Admin from './containers/Admin';
-import Login from './containers/Login';
-import NotFound from 'containers/NotFound';
+import NotFound from './containers/NotFound';
 
 import {getToken} from './actions/user';
 
+import 'font-awesome/css/font-awesome.css';
 import './styles';
 
 
@@ -55,12 +55,10 @@ render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={App} >
-                { /* Home (main) route */}
                 <IndexRoute component={Home}/>
                 <Route path="/admin" component={Admin}/>
                 <Route path="/about" component={About}/>
                 <Route path="/contact" component={Contact}/>
-                <Route path="/login" component={Login}/>
 
                 <Route path="*" component={NotFound} status={404}/>
             </Route>
