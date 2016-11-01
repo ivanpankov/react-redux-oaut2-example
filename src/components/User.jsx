@@ -3,7 +3,7 @@ import NavLink from './NavLink';
 
 const renderLogin = (toggleLoginModal) => {
   return (
-    <span className="nav navbar-nav navbar-right" onClick={toggleLoginModal}>
+    <span className="nav navbar-nav navbar-right login" onClick={toggleLoginModal}>
       <span>Login&nbsp;</span>
       <span className="fa fa-user-circle"></span>
     </span>
@@ -12,10 +12,10 @@ const renderLogin = (toggleLoginModal) => {
 
 const renderCredentials = (name, photo) => {
   return (
-    <div className="nav navbar-nav navbar-right">
-      <li><a>{name}</a></li>
-      <li className="user-picture"><img src={photo} height="42" width="42"/></li>
-    </div>
+    <span className="nav navbar-nav navbar-right">
+      <span>{name}</span>
+      <span className="user-picture"><img src={photo} height="42" width="42"/></span>
+    </span>
   );
 };
 
