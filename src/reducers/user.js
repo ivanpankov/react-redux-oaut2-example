@@ -14,8 +14,8 @@ const user = (state = initialUser, action = {}) => {
             return {
                 ...state,
                 name: action.profile.displayName,
-                isAuthenticated: true,
                 photo: action.profile.photo,
+                isAuthenticated: true,
                 showLoginModal: false,
             };
 

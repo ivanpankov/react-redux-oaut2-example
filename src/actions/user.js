@@ -1,5 +1,4 @@
-import { browserHistory } from 'react-router'
-import { notification } from './notification';
+// import { notification } from './notification';
 
 export const TOGGLE_LOGIN_MODAL = 'TOGGLE_LOGIN_MODAL';
 export const toggleLoginModal = () => ({
@@ -58,10 +57,7 @@ export const loginGitHub = () => dispatch => {
   dispatch(requestTokenSuccess({
     profile: {
       photo: 'https://avatars.githubusercontent.com/u/3731333?v=3',
-      displayName: 'Ivan Pankov',
-      isAuthenticated: true
+      displayName: 'Ivan Pankov'
     }
   }));
-
-  browserHistory.replace('/');
 };
