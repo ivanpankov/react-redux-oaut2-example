@@ -1,5 +1,5 @@
 import React from 'react';
-import "./User.less";
+import "./styles.less";
 
 const renderLogin = (toggleLoginModal) => {
   return (

@@ -4,9 +4,11 @@ import {loginGitHub, toggleLoginModal} from '../actions/user';
 
 const mapDispatchToProps = dispatch => ({
   loginGitHub: () => {
+    console.log('login action');
     dispatch(loginGitHub());
   },
   toggleLoginModal: () => {
+    console.log('toggle');
     dispatch(toggleLoginModal());
   }
 });

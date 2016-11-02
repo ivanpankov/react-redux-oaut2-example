@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import User from '../components/user/User';
+import User from '../components/User';
 import { toggleLoginModal, logOut } from '../actions/user';
 
 const mapStateToProps = ({user}) => {
