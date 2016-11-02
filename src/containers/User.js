@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import User from '../components/User';
-import { toggleLoginModal } from '../actions/user';
+import User from '../components/user/User';
+import { toggleLoginModal, logOut } from '../actions/user';
 
 const mapStateToProps = ({user}) => {
     return user;
@@ -9,8 +9,11 @@ const mapStateToProps = ({user}) => {
 const mapDispatchToProps = dispatch => ({
     toggleLoginModal: () => {
         dispatch(toggleLoginModal());
+    },
+    logOut: () => {
+        dispatch(logOut());
     }
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps, null, {pure: false})(User);
+export default connect(mapStateToProps, mapDispatchToProps, null)(User);

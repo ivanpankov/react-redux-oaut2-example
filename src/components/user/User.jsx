@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './NavLink';
+import "./User.less";
 
 const renderLogin = (toggleLoginModal) => {
   return (
@@ -10,19 +10,20 @@ const renderLogin = (toggleLoginModal) => {
   );
 };
 
-const renderCredentials = (name, photo) => {
+const renderCredentials = (name, photo, logOut) => {
   return (
     <span className="nav navbar-nav navbar-right">
+      <span className="logout" onClick={logOut}>Logout</span>
       <span>{name}</span>
       <span className="user-picture"><img src={photo} height="42" width="42"/></span>
     </span>
   );
 };
 
-const User = ({ isAuthenticated, name, photo, toggleLoginModal }) => {
+const User = ({ isAuthenticated, name, photo, toggleLoginModal, logOut }) => {
   return (
     <div id="profile">
-      { isAuthenticated ? renderCredentials(name, photo) : renderLogin(toggleLoginModal) }
+      { isAuthenticated ? renderCredentials(name, photo, logOut) : renderLogin(toggleLoginModal) }
     </div>
   );
 };

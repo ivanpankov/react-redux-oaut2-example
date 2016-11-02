@@ -1,4 +1,4 @@
-import { REQUEST_TOKEN_SUCCESS, TOGGLE_LOGIN_MODAL } from '../actions/user';
+import { REQUEST_TOKEN_SUCCESS, TOGGLE_LOGIN_MODAL, LOG_OUT } from '../actions/user';
 
 const initialUser = {
     isAuthenticated: false,
@@ -16,15 +16,23 @@ const user = (state = initialUser, action = {}) => {
                 name: action.profile.displayName,
                 photo: action.profile.photo,
                 isAuthenticated: true,
-                showLoginModal: false,
+                showLoginModal: false
             };
 
         case TOGGLE_LOGIN_MODAL:
-            console.log('toggle');
             return {
               ...state,
                 showLoginModal: !state.showLoginModal
             };
+
+        case LOG_OUT:
+          return {
+              ...state,
+              name: '',
+              photo: '',
+              isAuthenticated: false,
+              showLoginModal: false
+          };
 
         default:
             return state;
