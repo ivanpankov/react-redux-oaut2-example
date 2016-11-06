@@ -1,21 +1,32 @@
 export default class Auth {
-  constructor(tokenName) {
-    this.tokenName = tokenName;
-  }
+    constructor(tokenName) {
+        this.tokenName = tokenName;
+    }
 
-  setToken(token) {
-    localStorage.setItem(this.tokenName, token);
-  }
+    setToken(token) {
+        localStorage.setItem(this.tokenName, token);
+    }
 
-  removeToken() {
-    localStorage.removeItem(this.tokenName);
-  }
+    removeToken() {
+        localStorage.removeItem(this.tokenName);
+    }
 
-  getToken() {
-    return localStorage.getToken(this.tokenName);
-  }
+    getToken() {
+        return localStorage.getToken(this.tokenName);
+    }
 
-  isAuthenticated() {
-    return !!this.getToken();
-  }
+    isAuthenticated() {
+        return !!this.getToken();
+    }
+};
+
+export const authTypes = {
+    GITHUB: 'GitHub',
+    FACEBOOK: 'Facebook',
+    LOCAL: 'Local'
+};
+
+export const authPaths = {
+    [authTypes.GITHUB]: '/auth/github',
+    [authTypes.FACEBOOK]: '/auth/facebook',
 };

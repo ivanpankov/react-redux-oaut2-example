@@ -1,7 +1,7 @@
 import React  from 'react';
 import "./styles.less";
 
-const LoginModal = ({ loginGitHub, toggleLoginModal }) => (
+const LoginModal = ({ loginGitHub, loginFacebook, toggleLoginModal }) => (
   <div className="modal fade in" tabIndex="-1">
     <div className="modal-dialog modal-lg">
       <div className="modal-content">
@@ -21,10 +21,10 @@ const LoginModal = ({ loginGitHub, toggleLoginModal }) => (
                 </button>
               </div>
               <div className="col-xs-4 col-sm-2">
-                <a href="#" className="btn btn-block btn-success">
-                  <i className="fa fa-twitter visible-xs"></i>
-                  <span className="hidden-xs">Twitter</span>
-                </a>
+                <button onClick={loginFacebook} className="btn btn-block btn-success">
+                  <i className="fa fa-facebook visible-xs"></i>
+                  <span className="hidden-xs">Facebook</span>
+                </button>
               </div>
               <div className="col-xs-4 col-sm-2">
                 <a href="#" className="btn btn-block btn-danger">
