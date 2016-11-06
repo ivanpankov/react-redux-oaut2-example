@@ -1,14 +1,11 @@
 import {connect} from 'react-redux';
 import LoginModal from '../components/LoginModal';
 import {logIn, toggleLoginModal} from '../actions/user';
-import {authTypes} from '../helpers/Auth';
 
 const mapDispatchToProps = dispatch => ({
-    loginGitHub: () => {
-        dispatch(logIn(authTypes.GITHUB));
-    },
-    loginFacebook: () => {
-        dispatch(logIn(authTypes.FACEBOOK));
+    logIn: (authType, payload) => {
+        console.log(authType, payload);
+        dispatch(logIn(authType, payload));
     },
     toggleLoginModal: () => {
         dispatch(toggleLoginModal());

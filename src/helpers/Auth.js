@@ -29,4 +29,5 @@ export const authTypes = {
 export const authPaths = {
     [authTypes.GITHUB]: '/auth/github',
     [authTypes.FACEBOOK]: '/auth/facebook',
+    [authTypes.LOCAL]: '/auth/local',
 };
