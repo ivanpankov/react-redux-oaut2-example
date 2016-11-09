@@ -1,5 +1,5 @@
-// import { notification } from './notification';
-import Auth, {authPaths} from '../helpers/Auth';
+import {notification} from './notification';
+import Auth, {authPaths, authTypes} from '../helpers/Auth';
 
 const auth = new Auth('access_token_github');
 
@@ -27,19 +27,19 @@ export const requestTokenSuccess = credentials => {
 
 
 export const REQUEST_TOKEN_FAIL = 'REQUEST_TOKEN_FAIL';
-export const requestTokenFail = event => ({
+export const requestTokenFail = error => ({
     type: REQUEST_TOKEN_FAIL,
-    text: event.target.value
+    error
 });
 
-
-export const logIn = (authType) => dispatch => {
+const authSocial = (authType, dispatch) => {
     const url = authPaths[authType],
         width = 1000,
         height = 650,
         top = (window.outerHeight - height) / 2,
         left = (window.outerWidth - width) / 2;
 
+    dispatch(requestToken());
 
     const popup = window.open(url, 'GitHub_login', 'width=' + width + ',height=' + height + ',scrollbars=0,top=' + top + ',left=' + left);
 
@@ -54,6 +54,58 @@ export const logIn = (authType) => dispatch => {
             window.removeEventListener(unsubscribeId, messageHandler);
             dispatch(requestTokenSuccess(event.data));
         }
+    }
+};
+
+const authLocal = (authType, dispatch, payload) => {
+    let body;
+
+    try {
+        body = JSON.stringify(payload);
+    } catch (error){
+        dispatch(requestTokenFail(error));
+        dispatch(notification.error(error.toString()));
+        return;
+    }
+
+    const loginRequest = new Request(authPaths[authType], {
+        method: 'POST',
+        mode: 'cors',
+        body: body,
+        headers: new Headers({
+            'Content-Type': 'application/json; charset=utf-8'
+        })
+    });
+
+    dispatch(requestToken());
+
+    return fetch(loginRequest)
+        .then(response => {
+            return response.json();
+        })
+        .then(user => {
+            console.log(user);
+            dispatch(requestTokenSuccess(user));
+        })
+        .catch(error => {
+            console.log(error);
+            dispatch(requestTokenFail(error));
+            dispatch(notification.error(error.toString()));
+        });
+};
+
+
+export const logIn = (authType, payload) => dispatch => {
+    switch (authType) {
+        case authTypes.GITHUB:
+        case authTypes.FACEBOOK:
+            authSocial(authType, dispatch);
+            break;
+
+        case authTypes.LOCAL:
+            authLocal(authType, dispatch, payload);
+            break;
+
     }
 
     // const testCredentials = {

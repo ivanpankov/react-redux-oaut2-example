@@ -27,7 +27,7 @@ export default class LoginForm extends Component {
     }
 
     onRememberMeChange(event) {
-        this.setState({rememberMe: event.target.value});
+        this.setState({rememberMe: event.target.checked});
     }
 
     onSubmit(event) {

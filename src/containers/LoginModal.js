@@ -4,7 +4,6 @@ import {logIn, toggleLoginModal} from '../actions/user';
 
 const mapDispatchToProps = dispatch => ({
     logIn: (authType, payload) => {
-        console.log(authType, payload);
         dispatch(logIn(authType, payload));
     },
     toggleLoginModal: () => {
